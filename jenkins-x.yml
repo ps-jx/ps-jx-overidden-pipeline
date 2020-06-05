@@ -6,5 +6,5 @@ pipelineConfig:
         steps:
           - name: Create coverage report
             sh: gradle jacocoTestReport
-          - name: Upload report to GitHub
+          - name: Upload coverage report to GitHub
             sh: curl -s https://codecov.io/bash | /bin/bash
