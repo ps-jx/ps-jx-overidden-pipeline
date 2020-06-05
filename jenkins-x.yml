@@ -5,7 +5,7 @@ pipelineConfig:
       build:
         steps:
           - name: Create code coverage report
-            command: gradle codeCoverageReport
+            command: gradle jacocoTestReport
           - name: Publish code coverage report to GitHub
             command: bash <(curl -s https://codecov.io/bash) -t ${REPOSITORY_TOKEN}
             env:
