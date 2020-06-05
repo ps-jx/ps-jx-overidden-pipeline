@@ -19,6 +19,7 @@ pipelineConfig:
               - name: REPOSITORY_TOKEN
                 value: 0ab026af-6788-422e-a47f-af8fc4b4efd5
             command: |
+              set -eo pipefail
               ls
               ls build
               ls build/reports
