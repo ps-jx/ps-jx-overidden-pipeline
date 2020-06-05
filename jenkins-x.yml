@@ -7,24 +7,13 @@ pipelineConfig:
           - name: Create code coverage report
             command: |
               gradle jacocoTestReport
-              ls
-              ls build
-              ls build/reports
-              ls build/reports/jacoco
-              ls build/reports/jacoco/test
           - name: Upload code coverage report to GitHub
             agent:
               image: "ellerbrock/alpine-bash-curl-ssl:latest"
             env:
-              - name: REPOSITORY_TOKEN
+              - name: CODECOV_TOKEN
                 value: 0ab026af-6788-422e-a47f-af8fc4b4efd5
             command: |
-              set -eo pipefail
-              ls
-              ls build
-              ls build/reports
-              ls build/reports/jacoco
-              ls build/reports/jacoco/test
               curl -s https://codecov.io/bash | /bin/bash
 #            command: /bin/bash -c 'bash <(curl -s https://codecov.io/bash)'
 #            command: /bin/bash <(curl -s https://codecov.io/bash) -t ${REPOSITORY_TOKEN}
