@@ -1,1 +1,16 @@
 buildPack: gradle
+pipelineConfig:
+  pipelines:
+    pullRequest:
+      build:
+        steps:
+          - name: Create code coverage report
+            sh: gradle jacocoTestReport
+          - name: Upload coverage report
+            sh: curl -s https://codecov.io/bash | /bin/bash
+            env:
+              - name: CODECOV_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: code-cov
+                    key: code-cov-token
