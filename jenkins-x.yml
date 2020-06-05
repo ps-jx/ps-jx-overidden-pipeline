@@ -4,8 +4,8 @@ pipelineConfig:
     pullRequest:
       build:
         preSteps:
-          - name: Create code coverage report
-            command: gradle jacocoTestReport
+#          - name: Create code coverage report
+#            command: gradle jacocoTestReport
           - name: Upload code coverage report to GitHub
             agent:
               image: "ellerbrock/alpine-bash-curl-ssl:latest"
