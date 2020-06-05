@@ -12,5 +12,6 @@ pipelineConfig:
             env:
               - name: REPOSITORY_TOKEN
                 value: 0ab026af-6788-422e-a47f-af8fc4b4efd5
-            command: /bin/bash <(curl -s https://codecov.io/bash) -t ${REPOSITORY_TOKEN}
+            command: echo hello world
+#            command: /bin/bash <(curl -s https://codecov.io/bash) -t ${REPOSITORY_TOKEN}
 
