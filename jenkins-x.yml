@@ -1,1 +1,10 @@
 buildPack: gradle
+pipelineConfig:
+  pipelines:
+    pullRequest:
+      build:
+        steps:
+          - name: Create coverage report
+            sh: gradle jacocoTestReport
+          - name: Upload code coverage report to GitHub
+            sh: curl -s https://codecov.io/bash | /bin/bash
