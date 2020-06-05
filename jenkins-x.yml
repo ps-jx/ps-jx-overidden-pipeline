@@ -3,7 +3,7 @@ pipelineConfig:
   pipelines:
     pullRequest:
       build:
-        steps:
+        preSteps:
           - name: Create code coverage report
             command: gradle jacocoTestReport
           - name: Upload code coverage report to GitHub
@@ -12,5 +12,5 @@ pipelineConfig:
             env:
               - name: REPOSITORY_TOKEN
                 value: 0ab026af-6788-422e-a47f-af8fc4b4efd5
-            command: bash <(curl -s https://codecov.io/bash) -t ${REPOSITORY_TOKEN}
+            command: /bin/bash <(curl -s https://codecov.io/bash) -t ${REPOSITORY_TOKEN}
 
