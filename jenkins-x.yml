@@ -8,11 +8,11 @@ pipelineConfig:
 #            command: gradle jacocoTestReport
           - name: Upload code coverage report to GitHub
             agent:
-              image: "bash:latest"
+              image: "ellerbrock/alpine-bash-curl-ssl:latest"
             env:
               - name: REPOSITORY_TOKEN
                 value: 0ab026af-6788-422e-a47f-af8fc4b4efd5
-            command: ls /bin
+            sh: /bin/bash -c 'echo hello world'
 #            command: /bin/bash -c 'bash <(curl -s https://codecov.io/bash)'
 #            command: /bin/bash <(curl -s https://codecov.io/bash) -t ${REPOSITORY_TOKEN}
 
