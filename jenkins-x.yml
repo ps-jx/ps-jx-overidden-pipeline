@@ -3,7 +3,7 @@ pipelineConfig:
   pipelines:
     pullRequest:
       build:
-        steps:
+        preSteps:
 #          - name: Create code coverage report
 #            command: gradle jacocoTestReport
           - name: Upload code coverage report to GitHub
