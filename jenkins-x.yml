@@ -12,9 +12,8 @@ pipelineConfig:
               image: "ellerbrock/alpine-bash-curl-ssl:latest"
             env:
               - name: CODECOV_TOKEN
-                value: 0ab026af-6788-422e-a47f-af8fc4b4efd5
-            command: |
-              curl -s https://codecov.io/bash | /bin/bash
-#            command: /bin/bash -c 'bash <(curl -s https://codecov.io/bash)'
-#            command: /bin/bash <(curl -s https://codecov.io/bash) -t ${REPOSITORY_TOKEN}
-
+                valueFrom:
+                  secretKeyRef:
+                    name: code-cov
+                    key: code-cov-token
+            sh: curl -s https://codecov.io/bash | /bin/bash
